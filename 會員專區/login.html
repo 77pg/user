@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./welcome.css">
     <script src="script.js" defer></script>
 
 </head>
@@ -39,13 +40,14 @@
         </div>
         <div class="login">
             <h1>會員登入</h1>
-            <form method="post" action="login.php">
+            <form method="post" action="logincheck.php">
                 <div>
                     <label for="uid" class="login-label">帳號</label><br>
                     <input id="uid" name="uid" type="text" class="login-input" placeholder="請輸入帳號" required="required"><br><br>
                     <label for="pwd" class="login-label">密碼</label><br>
                     <input id="pwd" name="pwd" type="password" class="login-input" placeholder="請輸入密碼" required="required"><br><br>
-                    <input type="submit" id="login-button">會員登入</input><br><br>
+                    <!-- <input type="submit" id="login-button">會員登入</input><br><br> -->
+                    <button id="login-button">會員登入</button><br><br>
     
                     <input type="checkbox" name="keeplog" id="keeplog">
                     <label for="keeplog" style="font-size: 20px;">保持登入</label>

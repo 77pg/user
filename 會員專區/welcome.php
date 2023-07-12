@@ -36,8 +36,8 @@ $src = "data:{$mime_type};base64,{$image_base64}"
     <title>Welcome</title>
     <link rel="stylesheet" href="./home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="./login.css">
     <link rel="stylesheet" href="./welcome.css">
+    <link rel="stylesheet" href="./login.css">
     <script src="script.js" defer></script>
 
 </head>
@@ -49,11 +49,13 @@ $src = "data:{$mime_type};base64,{$image_base64}"
             <div class="dropdown">
                 <span><img src="./img/search.png" alt="搜尋種類"></span>
                 <div class="dropdown-content">
-                    <li><a href="">全部商品</a></li>
-                    <li><a href="">手鍊</a></li>
-                    <li><a href="">耳飾</a></li>
-                    <li><a href="">項鍊</a></li>
-                    <li><a href="">吊飾</a></li>
+                    <ul>
+                        <li><a href="">全部商品</a></li>
+                        <li><a href="">手鍊</a></li>
+                        <li><a href="">耳飾</a></li>
+                        <li><a href="">項鍊</a></li>
+                        <li><a href="">吊飾</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="dropdown">
@@ -66,8 +68,15 @@ $src = "data:{$mime_type};base64,{$image_base64}"
                 <span><img src="./img/user.png" alt="使用者"></span>
                 
                 <div class="dropdown-content">
-                    <button onclick="location.href='revise.php'">修改</button>
-                    <button onclick="location.href='logout.php'">登出</button>
+                    <?= $cname ?>
+                    <p>您好!</p>
+                    <hr>
+                    <ul>
+                        <li><a href="revise.php">我的帳戶</a></li>
+                        <li><a href="orders.php" >訂單查詢</a></li>
+                        <li><a href="favorite.php">收藏清單</a></li>
+                        <li><a href="logout.php" >會員登出</a></li>
+                    </ul>
                 </div>
             </div>
 

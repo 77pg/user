@@ -24,6 +24,7 @@ if (isset($_COOKIE['token'])) {
 </head>
 
 <body>
+    <!-- http://localhost/login.php -->
     <div class="header">
         <div class="menu">
             <h1>低調廚房</h1>

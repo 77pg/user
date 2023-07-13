@@ -37,7 +37,6 @@ $src = "data:{$mime_type};base64,{$image_base64}"
     <link rel="stylesheet" href="./home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="./welcome.css">
-    <link rel="stylesheet" href="./login.css">
     <script src="script.js" defer></script>
 
 </head>
@@ -62,6 +61,8 @@ $src = "data:{$mime_type};base64,{$image_base64}"
                 <span><img src="./img/shopping-cart.png" alt="購物車"></span>
                 <div class="dropdown-content">
                     <p>目前的購物車是空的!</p>
+                    <li><a href="logout.php" >立即購買</a></li>
+
                 </div>
             </div>
             <div class="dropdown">

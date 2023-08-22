@@ -103,11 +103,15 @@ $result2 = $stmt2->get_result();
                         <img src="../icon_public/user.png" alt="搜尋">
                     </button>
                     <div class="dropdown-content" id="user-dropdown">
-                        <?php
+                    <?php
                         // 檢查 Session 中的登入狀態
                         if (isset($_COOKIE['token'])) {
                             // 使用者已登入，顯示登出選項
                             echo '<li style="color:black;font-size: 12px;">---登入成功---</li>';
+                            echo '<li><a href="../Member area/update.php">我的帳戶</a></li>';
+                            echo '<li><a href="../Member area/password.php">變更密碼</a></li>';
+                            echo '<li><a href="../Member area/search.php">訂單查詢</a></li>';
+                            echo '<li><a href="../Member area/collect.php">收藏清單</a></li>';
                             echo '<li><a href="../login/logout.php">登出</a></li>';
                             // 這裡可以根據需要顯示其他登入後的選項，例如"我的帳戶"、"訂單查詢"等
                         } else {
@@ -149,6 +153,7 @@ $result2 = $stmt2->get_result();
                 <div class="container">
                     <?php while ($row = $result2->fetch_assoc()) {
                         $isFavorited = in_array($row['pid'], $favorites);
+                        
                     ?>
                         <div class="card">
                             <div class="box">
@@ -160,7 +165,7 @@ $result2 = $stmt2->get_result();
                             </div>
                             <div class="state">
                                 <h3><?php echo $row['pname'] ?></h3>
-                                <p>NT$<?php echo $row['price'] ?> 元</p>
+                                <p>NT$<?php echo round($row['price']*$row['P_discount'])?> 元</p>
                             </div>
                         </div>
                     <?php } ?>

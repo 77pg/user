@@ -44,6 +44,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $showStep2 = false;
             $showSuccess = true;
+            // 调用 logout 存储过程，执行登出操作
+        $sql_logout = 'CALL logout(?)';
+        $stmt_logout = $mysqli->prepare($sql_logout);
+        $stmt_logout->bind_param('s', $token);
+        $stmt_logout->execute();
+        $stmt_logout->close();
+
+        // 清除 Cookie，並將過期時間設定為過去的時間
+        setcookie('token', '', time() - 3600, '/');
+        setcookie('welcome', '', time() - 3600, '/');
+
+        // 清除会话
+        session_destroy();
+
+        // 将 token 置为空，以防止继续使用已失效的 token
+        $token = '';
+
+        // 導向登录页面
+        echo '<script>
+                alert("變更成功已登出，請重新登入！");
+                window.location.href = "../login/login.php";
+            </script>';
+        exit();
 
         }
     }
@@ -131,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             // 使用者已登入，顯示登出選項
                             echo '<li style="color:black;font-size: 12px;">---登入成功---</li>';
                             echo '<li><a href="../Member area/update.php">我的帳戶</a></li>';
-                            echo '<li><a href="../Member area/update.php">變更密碼</a></li>';
+                            echo '<li><a href="../Member area/password.php">變更密碼</a></li>';
                             echo '<li><a href="../Member area/search.php">訂單查詢</a></li>';
                             echo '<li><a href="../Member area/collect.php">收藏清單</a></li>';
                             echo '<li><a href="../login/logout.php">登出</a></li>';
@@ -235,40 +258,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // 若一致且符合格式，則提交表單並彈出更新成功的提示
         if (confirm('確定要修改密碼嗎？')) {
-            alert('更新密碼成功！');
+            // alert('更新密碼成功！');
         } else {
             event.preventDefault(); // 阻止表單提交
         }
     });
     </script>
-
-    <!-- <script>
-    function togglePasswordVisibility(inputId, iconId) {
-        var passwordInput = document.getElementById(inputId);
-        var toggleIcon = document.getElementById(iconId);
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleIcon.src = "../icon_public/eye-open.png";
-        } else {
-            passwordInput.type = "password";
-            toggleIcon.src = "../icon_public/eye-closed.png";
-        }
-    }
-
-    document.getElementById("updateButton").addEventListener("click", function(event) {
-        var newPassword = document.getElementById("newPassword").value;
-        var confirmPassword = document.getElementById("confirmPassword").value;
-
-        // 檢查是否有錯誤訊息，如果有則阻止表單提交
-        if (newPassword === confirmPassword) {
-            alert('更新密碼成功！');
-        } else {
-            alert('密碼不一致！');
-            event.preventDefault(); // 阻止表單提交
-        }
-    });
-</script> -->
+    
 </body>
 
 </html>

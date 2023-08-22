@@ -144,7 +144,7 @@ while($order = $result_orders->fetch_assoc()) {
                             // 使用者已登入，顯示登出選項
                             echo '<li style="color:black;font-size: 12px;">---登入成功---</li>';
                             echo '<li><a href="../Member area/update.php">我的帳戶</a></li>';
-                            echo '<li><a href="../Member area/update.php">變更密碼</a></li>';
+                            echo '<li><a href="../Member area/password.php">變更密碼</a></li>';
                             echo '<li><a href="../Member area/search.php">訂單查詢</a></li>';
                             echo '<li><a href="../Member area/collect.php">收藏清單</a></li>';
                             echo '<li><a href="../login/logout.php">登出</a></li>';
@@ -210,10 +210,10 @@ while($order = $result_orders->fetch_assoc()) {
                                         <p><?php echo $item['pname'] ?></p>
                                     </div>
                                     <div class="ordercount">
-                                        <p>單&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;價：<?php echo $item['price'] ?></p>
+                                        <p>單&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;價：NT$<?php echo $item['price'] ?></p>
                                         <p>數&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<?php echo $item['quantity'] ?></p>
-                                        <p>優惠折扣：NT$ 0</p>
-                                        <p>小&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：NT$ <?php echo $item['price']*$item['quantity'] ?></p>
+                                        <p>優惠折扣：NT$<?php echo $item['price']*0.1*$item['quantity'] ?></p>
+                                        <p>小&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;計：NT$ <?php echo round($item['price']*0.9)*$item['quantity'] ?></p>
                                     </div>
                                 </div>
                                 <?php } ?>

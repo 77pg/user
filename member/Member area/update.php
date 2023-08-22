@@ -136,7 +136,7 @@ $mysqli->close();
                             // 使用者已登入，顯示登出選項
                             echo '<li style="color:black;font-size: 12px;">---登入成功---</li>';
                             echo '<li><a href="../Member area/update.php">我的帳戶</a></li>';
-                            echo '<li><a href="../Member area/update.php">變更密碼</a></li>';
+                            echo '<li><a href="../Member area/password.php">變更密碼</a></li>';
                             echo '<li><a href="../Member area/search.php">訂單查詢</a></li>';
                             echo '<li><a href="../Member area/collect.php">收藏清單</a></li>';
                             echo '<li><a href="../login/logout.php">登出</a></li>';

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員管理</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/memberedit.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="navtitle">愛不飾手後台管理</div>
+        <a href="admin.html">會員管理</a>
+        <a href="">商品管理</a>
+        <a href="./ordermanagement.html">訂單管理</a>
+    </div>
+
+    <div class="head">
+        <h2>使用者名稱,您好</h2>
+        <div class="signout">登出</div>
+    </div>
+
+    <div class="content">
+        <div class="title">
+            <p>會員管理 編輯</p>
+        </div>
+        <form action="" method="post" id="editForm">
+            <table>
+                <tr>
+                    <td>會員姓名</td>
+                    <td>手機</td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="cname"></td>
+                    <td><input type="text" id="cphone"></td>
+                </tr>
+                <tr>
+                    <td>會員帳號</td>
+                    <td>性別</td>
+                </tr>
+                <tr>
+                    <td><span id="uid"></span></td>
+                    <td>
+                        <input type="radio" name="gender" id="boy" value="1"><label for="boy">男</label>
+                        <input type="radio" name="gender" id="girl" value="0"><label for="girl">女</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>密碼</td>
+                    <td>會員狀態</td>
+                </tr>
+                <tr>
+                    <td><input type="password" id="upwd"></td>
+                    <td>
+                        <input type="radio" name="state" id="start" value="1"><label for="start">啟用</label>
+                        <input type="radio" name="state" id="stop" value="0"><label for="stop">停用</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>電子信箱</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="uemail"></td>
+                    <!-- <td>123</td> -->
+                </tr>
+            </table>
+            <div class="bottom">
+                <input type="submit" value="確認" id="edit">
+                <div class="cancel"><a href="admin.html">取消</a></div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // 使用 JavaScript 獲取查詢參數
+        const urlParams = new URLSearchParams(window.location.search);
+        const memberId = urlParams.get('memberId');
+
+        // 使用 AJAX 請求獲取指定會員的資料並填充表單
+        fetch(`api/getMember.php?memberId=${memberId}`)
+            .then(response => response.json())
+            .then(member => {
+                document.getElementById('cname').value = member.cname;
+                document.getElementById('uid').textContent = member.uid;
+                document.getElementById('upwd').value = member.pwd;
+                document.getElementById('uemail').value = member.email;
+                document.getElementById('cphone').value = member.phone;
+
+                const genderRadioBoy = document.getElementById('boy');
+                const genderRadioGirl = document.getElementById('girl');
+                if (member.gender === 1) {
+                    genderRadioBoy.checked = true;
+                } else {
+                    genderRadioGirl.checked = true;
+                }
+
+                const stateRadioStart = document.getElementById('start');
+                const stateRadioStop = document.getElementById('stop');
+                if (member.state === 1) {
+                    stateRadioStart.checked = true;
+                } else {
+                    stateRadioStop.checked = true;
+                }
+            })
+            .catch(error => {
+                console.error('獲取會員資料時出錯：', error);
+            });
+
+    </script>
+
+
+<script>
+    // ... (之前的代碼) ...
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const editForm = document.getElementById('editForm');
+
+        editForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // 阻止表單預設提交行為
+
+            // 獲取表單字段的值
+            const uid = document.getElementById('uid').textContent;
+            const cname = document.getElementById('cname').value;
+            const pwd = document.getElementById('upwd').value;
+            const cphone = document.getElementById('cphone').value;
+            const uemail = document.getElementById('uemail').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const state = document.querySelector('input[name="state"]:checked').value;
+
+            // 顯示 alert，並在使用者確認後執行提交操作
+            const confirmMessage = `您確定要將以下內容提交嗎？\n\n姓名：${cname}\n手機：${cphone}\n帳號：${uid}\n密碼：${pwd}\n電子信箱：${uemail}\n性別：${gender}\n狀態：${state}`;
+            if (confirm(confirmMessage)) {
+                // 使用 AJAX 傳遞表單數據到 PHP
+                fetch('api/updateMember.php', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        uid: uid,
+                        cname: cname,
+                        upwd: pwd,
+                        cphone: cphone,
+                        uemail: uemail,
+                        gender: gender,
+                        state: state
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.text())  // 將回應的內容轉換為純文本
+                    .then(data => {
+                        alert(data); // 顯示處理結果
+                    })
+                    .catch(error => {
+                        console.error('提交表單時出錯：', error);
+                        alert('提交表單時出錯');
+                    });
+            }
+        });
+    });
+
+</script>
+
+
+
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const editForm = document.getElementById('editForm');
+
+            editForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // 阻止表單預設提交行為
+
+                // 獲取表單字段的值
+                const uid = document.getElementById('uid').value;
+                const cname = document.getElementById('cname').value;
+                const pwd = document.getElementById('upwd').value;
+                const cphone = document.getElementById('cphone').value;
+                const uemail = document.getElementById('uemail').value;
+                const gender = document.querySelector('input[name="gender"]:checked').value;
+                const state = document.querySelector('input[name="state"]:checked').value;
+
+                // 使用 AJAX 傳遞表單數據到 PHP
+                fetch('api/updateMember.php', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        uid: uid,
+                        cname: cname,
+                        upwd: pwd,
+                        cphone: cphone,
+                        uemail: uemail,
+                        gender: gender,
+                        state: state
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.text())  // 將回應的內容轉換為純文本
+                    .then(data => {
+                        if (data === '會員更改成功') {
+                            alert('成功更改會員');
+                        }else if (data === 'EMAIL已綁定其他會員') {
+                            alert('EMAIL更改失敗');
+                        }else if (data === '手機號碼已綁定其他會員') {
+                            alert('手機號碼更改失敗');
+                        }else {
+                            alert('更改失敗');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('提交表單時出錯：', error);
+                        alert('提交表單時出錯');
+                    });
+            });
+        });
+
+
+    </script> -->
+
+</body>
+
+</html>

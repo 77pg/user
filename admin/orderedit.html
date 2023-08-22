@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂單管理</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/orderedit.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="navtitle">愛不飾手後台管理</div>
+        <a href="./admin.html">會員管理</a>
+        <a href="">商品管理</a>
+        <a href="./ordermanagement.html">訂單管理</a>
+    </div>
+
+    <div class="head">
+        <h2>使用者名稱,您好</h2>
+        <div class="signout">登出</div>
+    </div>
+
+    <div class="content">
+        <div class="title"><p>訂單管理</p></div>
+        <form action="">
+            <div class="formtitle">訂單編號</div>
+            <div class="commoditydetail">
+                <div class="thead">
+                    <div class="leftwidth"><p>商品明細</p></div>
+                    <div class="rightwidth">
+                        <p>單價</p>
+                        <p>數量</p>
+                        <p>小計</p>
+                    </div>
+                </div>
+                <div class="tbody">
+                    <div class="leftwidth">
+                        <p>商品名稱</p>
+                    </div>
+                    <div class="rightwidth">
+                        <p>NT2,000</p>
+                        <div class="quantity">1</div>
+                        <p>NT2,000</p>
+                    </div>
+                </div>
+                <div class="calculate">
+                    <div class="freight">運費 NT<div class="nt">0</div></div>
+                    <div class="discount">優惠折扣 NT<div class="nt">0</div></div>
+                </div>
+                <div class="total">
+                    <div class="leftwidth">
+                        <p>共有<div class="itemnum">1</div>項商品</p>
+                    </div>
+                    <div class="right">
+                        <p>總計 NT<div class="count">2,000</div></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery">
+                <div class="deliverytitle">
+                    <h2>配送及付款資訊</h2>
+                </div>
+                <div class="deliveryinf">
+                    <p>配送方式：</p>
+                    <p>超商及付款方式：</p>
+                    <p>門市名稱：</p>
+                    <p>購買人：</p>
+                    <p>地址：</p>
+                </div>
+            </div>
+            <div class="filter">
+                <p>篩選訂單狀態：</p>
+                <select name="" id="">
+                    <option value="">未處理</option>
+                    <option value="">處理中</option>
+                    <option value="">準備出貨</option>
+                    <option value="">已出貨</option>
+                    <option value="">已到貨</option>
+                </select>
+            </div>
+            <div class="bottom">
+                <input type="submit" value="確認">
+                <div class="cancel"><a href="./ordermanagement.html">取消</a></div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

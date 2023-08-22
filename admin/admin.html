@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員管理</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/membermanagement.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="navtitle">愛不飾手後台管理</div>
+        <a href="admin.html">會員管理</a>
+        <a href="">商品管理</a>
+        <a href="./ordermanagement.html">訂單管理</a>
+    </div>
+
+    <div class="head">
+        <h2>使用者名稱,您好</h2>
+        <div class="signout">登出</div>
+    </div>
+
+    <div class="content">
+        <div class="title">
+            <p>會員管理</p>
+            <a href="memberadd.html"><button>新增會員</button></a>
+
+        </div>
+        <div class="member">
+            <table>
+                <tr>
+                    <td>#</td>
+                    <td>會員姓名</td>
+                    <td>會員帳號</td>
+                    <td>註冊時間</td>
+                    <td>操作</td>
+                    <td>會員狀態</td>
+                </tr>
+                <tbody id="memberList">
+                    <!-- 這裡將動態生成會員資料 -->
+                </tbody>
+                <!-- <tr>
+                    <td>6</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>王小明</td>
+                    <td>test001</td>
+                    <td>2023/01/01</td>
+                    <td><div class="edit">編輯</div></td>
+                    <td>啟用</td>
+                </tr> -->
+            </table>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+   
+    <script>
+        // 使用 AJAX 請求獲取會員資料
+        function getMembers() {
+            fetch('api/mg.php') // 使用正確的 API 路徑
+                .then(response => response.json())
+                .then(data => {
+                    const memberList = document.getElementById('memberList');
+                    memberList.innerHTML = ''; // 清空現有資料
+
+                    let rowNumber = 1;
+                    data.forEach(member => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                        <td>${rowNumber}</td>
+                        <td>${member.cname}</td>
+                        <td>${member.uid}</td>
+                        <td>${member.date}</td>
+                        <td>
+                            <button class="editBtn" data-id="${member.uid}">編輯</button>
+                        </td>
+                        <td>${member.state === '1' ? '啟用' : '停用'}</td>
+                    `;
+                        memberList.appendChild(row);
+                        rowNumber++;
+                    });
+
+                    // 添加編輯按鈕的點擊事件
+                    const editButtons = document.querySelectorAll('.editBtn');
+                    editButtons.forEach(button => {
+                        button.addEventListener('click', () => {
+                            const memberId = button.getAttribute('data-id'); // 正確獲取會員帳號（uid）
+                            // 導航到編輯頁面，並將 memberId 作為查詢參數傳遞
+                            window.location.href = `memberedit.html?memberId=${memberId}`;
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error('獲取會員資料時出錯：', error);
+                });
+        }
+
+        // 初始化頁面
+        document.addEventListener('DOMContentLoaded', () => {
+            getMembers();
+        });
+    </script>
+ <!-- <script src="member.js"></script> -->
+</body>
+
+</html>

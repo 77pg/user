@@ -1,0 +1,116 @@
+.nav{
+    width: 300px;
+    height: 100%;
+    background-color: #b9b9b9;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    
+}
+.navtitle{
+    font-size: 24px;
+    font-weight: 500;
+    margin: 30px;
+}
+.nav a{
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 15px 30px;
+}
+.head{
+    height: 50px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+h2,.signout{
+    font-size: 20px;
+    padding: 0 20px;
+}
+.signout{
+    cursor: pointer;
+}
+.content{
+    width: 100%;
+    padding: 50px 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.title p{
+    padding: 15px;
+    font-size: 24px;
+    font-weight: 500;
+}
+form{
+    margin-left: 120px;
+    margin-bottom: 20px;
+}
+.filter{
+    font-size: 18px;
+    display: flex;
+    padding: 10px 0;
+}
+.day{
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+}
+input[type="submit"]{
+    background-color: #fff;
+    width: 100px;
+    margin-left: 20px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    cursor: pointer;
+}
+table{
+    margin: 5px 0 20px 130px;
+    text-align: center;
+}
+td{
+    padding: 15px 10px;
+    border-bottom: 1px solid #aaa;
+    font-size: 18px;
+}
+.member a{
+    color: #000;
+    text-decoration: none;
+}
+.edit{
+    width: 80px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+nav{
+    margin: auto;
+    text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.pagination{
+    display: flex;
+}
+nav li{
+    padding: 10px;
+    border-right: 1px solid #aaa;
+}
+nav li:last-child{
+    border-right: none;
+}
+li a{
+    text-decoration: none;
+    color: rgb(47, 132, 204);
+}
+nav li:hover{
+    background-color: rgb(47, 132, 204);
+}
+nav li:hover a{
+    color: #fff;
+}

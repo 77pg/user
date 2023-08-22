@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂單管理</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/ordermanagement.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="navtitle">愛不飾手後台管理</div>
+        <a href="admin.html">會員管理</a>
+        <a href="">商品管理</a>
+        <a href="./ordermanagement.html">訂單管理</a>
+    </div>
+
+    <div class="head">
+        <h2>使用者名稱,您好</h2>
+        <div class="signout">登出</div>
+    </div>
+
+    <div class="content">
+        <div class="title">
+            <p>訂單管理 未處理</p>
+        </div>
+        <form action="">
+            <div class="filter">
+                <p>篩選訂單狀態：</p>
+                <select name="" id="">
+                    <option value="">未處理</option>
+                    <option value="">處理中</option>
+                    <option value="">準備出貨</option>
+                    <option value="">已出貨</option>
+                    <option value="">已到貨</option>
+                </select>
+            </div>
+            <div class="day">
+                <p>訂單日期區間：</p>
+                <input type="date">
+                <p>～</p>
+                <input type="date">
+                <input type="submit" value="搜尋">
+            </div>
+        </form>
+        <div class="member">
+            <table>
+                <tr>
+                    <td>訂單編號#</td>
+                    <td>購買人</td>
+                    <td>訂單狀態</td>
+                    <td>訂單金額</td>
+                    <td>訂單建立日期</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>abcd230710001</td>
+                    <td>王小明</td>
+                    <td>未處理</td>
+                    <td>2000</td>
+                    <td>2023/01/01</td>
+                    <td><a href="./orderedit.html"><div class="edit">編輯</div></a></td>
+            </table>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    
+</body>
+</html>

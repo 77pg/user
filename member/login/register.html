@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊</title>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/navbar.css">
+    <link rel="stylesheet" href="../CSS/register.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="menu">
+            <div class="menu-left">
+                <div class="dropdown ">
+                    <button class="dropbtn-0">
+                        <img src="../icon_public/menu.png" alt="搜尋">
+                    </button>
+                    <div class="dropdown-content-0">
+                        <li><a href="login.php">會員登入</a></li>
+                        <li><a href="register.html">註冊新會員</a></li>
+                        <li><a href="">購物車</a></li>
+                        <li><a href="../Product outside/product.php">全部商品</a></li>
+                        <li><a href="../Product outside/product.php">手鍊</a></li>
+                        <li><a href="../Product outside/product.php">耳飾</a></li>
+                        <li><a href="../Product outside/product.php">項鍊</a></li>
+                        <li><a href="../Product outside/product.php">吊飾</a></li>
+                    </div>
+                </div>
+            </div>
+
+            <a href="../home/home.php">
+                <h1>愛不飾手</h1>
+            </a>
+
+            <div class="menu-right">
+                <div class="dropdown ">
+                    <button class="dropbtn-1">
+                        <img src="../icon_public/search.png" alt="搜尋">
+                    </button>
+                    <div class="dropdown-content">
+                        <li><a href="../Product outside/product.php">全部商品</a></li>
+                        <li><a href="../Product outside/product.php">手鍊</a></li>
+                        <li><a href="../Product outside/product.php">耳飾</a></li>
+                        <li><a href="../Product outside/product.php">項鍊</a></li>
+                        <li><a href="../Product outside/product.php">吊飾</a></li>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn-2">
+                        <img src="../icon_public/shopping-cart.png" alt="搜尋">
+                    </button>
+                    <div class="dropdown-content">
+                        <li>購物車目前是空的!</li>
+                        <li><a href="login.php">立即登入</a></li>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn-3">
+                        <img src="../icon_public/user.png" alt="搜尋">
+                    </button>
+                    <div class="dropdown-content">
+                        <li><a href="login.php">會員登入</a></li>
+                        <li><a href="register.html">註冊新會員</a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="navbar">
+        <a href="../Product outside/product.php">全部商品</a>
+        <a href="../Product outside/product.php">手鍊</a>
+        <a href="../Product outside/product.php">耳飾</a>
+        <a href="../Product outside/product.php">項鍊</a>
+        <a href="../Product outside/product.php">吊飾</a>
+    </div>
+
+    <div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../home/home.php"><img src="../icon_public/home.png"></a>
+            </li>
+            <li class="breadcrumb-item">/會員註冊</li>
+        </ul>
+    </div>
+
+
+    <!-- http://localhost/register.html -->
+    <form action="register.php" method="post" style="margin-bottom: 5%;">
+        <!--
+        1.註冊資訊不用非同步載入，直接提交表單；失去焦點時驗證使用者名稱密碼是否正確，再用ajax非同步載入資料；
+        2.form表單作用：收集使用者資訊並提交給伺服器；
+        3.屬性action作用：定義表單被提交時發生的動作，通常定義的是伺服器上處理程式的地址(url)，提交到註冊的php檔案，預設提交給本頁；
+        4.屬性method作用：指定表單資料的提交方式。
+          get(預設值)——明文提交，待提交的資料會顯示在位址列上；
+          post——隱式提交，提交的資料不會顯示在位址列上。
+        -->
+        <!--控制元件提交資訊，巢狀在form標記裡面-->
+        <!--登入名稱-文字方塊-->
+
+        <div class="context">
+            <h1>會員註冊</h1>
+            <label for="uid" class="register-label">帳號<span id="userinfo"
+                    style="margin-left: 2%;margin-top: 0.8%;font-size: 14px;color: red;"></span></label>
+
+            <p class="point01">※帳號為3~10位數，可以輸入數字、字母、底線</p>
+            <input id="uid" name="uid" type="text" class="register-input" placeholder="請輸入帳號" required="required"
+                pattern="\w{3,10}"><br><br>
+
+            <label for="cname" class="register-label">姓名</label>
+            <input id="cname" name="cname" type="text" class="register-input" placeholder="請輸入姓名"
+                required="required"><br><br>
+
+            <div class="password-container">
+                <label for="upwd" class="register-label">密碼
+                    <img id="togglePassword" alt="togglePassword" src="../icon_public/eye-closed.png"
+                        onclick="togglePasswordVisibility('upwd', 'togglePassword')"
+                        style="cursor: pointer; width: 20px; height: 20px; vertical-align: middle; margin-left: 10px;">
+                </label>
+                <input id="upwd" name="upwd" type="password" class="register-input"
+                    placeholder="請輸入8~20位數，需包含一個英文及一個數字，英文不分大小寫" required="required"
+                    pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{8,20}$" oninput="setCustomValidity('');">
+            </div>
+            <br>
+            <div class="password-container">
+                <label for="checkpwd" class="register-label">確認密碼
+                    <img id="toggleCheckPassword" alt="toggleCheckPassword" src="../icon_public/eye-closed.png"
+                        onclick="togglePasswordVisibility('checkpwd', 'toggleCheckPassword')"
+                        style="cursor: pointer; width: 20px; height: 20px; vertical-align: middle; margin-left: 10px;">
+                </label>
+                <input id="checkpwd" name="checkpwd" type="password" class="register-input"
+                    placeholder="請輸入8~20位數，需包含一個英文及一個數字，英文不分大小寫" required="required" pattern="[a-zA-Z0-9]{8,}"
+                    oninput="setCustomValidity('');" onchange="if(document.getElementById('upwd').value != document.getElementById('checkpwd').value){
+                        setCustomValidity('密碼不吻合');}">
+            </div>
+            <br>
+            <label for="phone" class="register-label">手機號碼</label>
+            <p class="point01">※為保護你的個人資料，手機一旦綁定則無法變更或連結其他電子郵件</p>
+            <input id="phone" name="phone" type="text" class="register-input" placeholder="請輸入手機號碼，ex:0911222333"
+                required="required" maxlength="10" pattern="09\d{2}\d{6}"><br><br>
+
+            <label for="email" class="register-label">電子信箱<span id="emailinfo"
+                    style="margin-left: 2%;margin-top: 0.8%;font-size: 14px;color: red;"></span></label>
+            <input id="email" name="email" type="email" class="register-input" placeholder="請輸入電子信箱" required="required"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" /><br><br>
+
+            <p class="register-label">性別</p>
+            <input type="radio" name="gender" id="male" value="0" checked>
+            <label for="male">女</label>
+            <input type="radio" name="gender" id="female" value="1">
+            <label for="female">男</label><br><br>
+
+            <button id="register-button">加入會員</button><br><br>
+
+            <p style="margin-left: 55%;font-weight: bold;margin-bottom: 2%;">已有會員帳號?<a style="text-decoration: none;" href="login.php">返回登入頁面</a></p>
+
+        </div>
+    </form>
+    <script src="../JS/register.js"></script>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footertxt">
+                <p>版權聲明/使用條款/聯繫信息/首頁</p>
+                <p>xxx12345@gmail.com</p>
+            </div>
+            <div class="media">
+                <div class="icon">
+                    <img src="../icon_public/facebook.png">
+                    <a>facebook</a>
+                </div>
+                <div class="icon">
+                    <img src="../icon_public/twitter.png">
+                    <a>twitter</a>
+                </div>
+                <div class="icon">
+                    <img src="../icon_public/instagram.png">
+                    <a>instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function togglePasswordVisibility(inputId, iconId) {
+        var passwordInput = document.getElementById(inputId);
+        var toggleIcon = document.getElementById(iconId);
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.src = "../icon_public/eye-open.png";
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.src = "../icon_public/eye-closed.png";
+        }
+    }
+</script>
+
+</html>

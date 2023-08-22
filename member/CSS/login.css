@@ -1,0 +1,139 @@
+/* 路徑 */
+.breadcrumb {
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+}
+
+.breadcrumb-item img {
+    width: 80%;
+    margin-top: -3px;
+}
+
+.breadcrumb-item {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* 內容 */
+.login-parent{
+    display: block;
+    /* background-color: burlywood; */
+    margin: 5% 30%;
+    border: 1px solid black;
+    width: 40%;
+    border-radius: 5px;
+}
+
+.login-parent h1{
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+    font-size: 28px;
+    width: 100%;
+    margin: 5% auto;
+}
+
+.login-label{
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    margin-left: 5%;
+}
+
+.login-input{
+    margin-left: 5%;
+    height: 30px;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    margin: 5% auto;
+    height: 35px;
+    width: 90%;
+    font-size: 22px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5%;
+}
+#login-button:hover{
+    background-color:#f7d0e7;
+}
+.box{
+    display: flex;
+    margin-left: 5%;
+    font-size: 16px;
+    /* margin-top: -10%; */
+}
+
+.under-login{
+    display: flex;
+    justify-content: center;
+    margin:5%;
+    gap: 15%;
+}
+
+.u1 img,.u2 img{
+    width: 20%;
+}
+.u1 a,.u2 a{
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+.u1 a:hover,.u2 a:hover{
+    font-weight: bold;
+}
+
+
+.bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+  }
+  .footer{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #000;
+  }
+  .footertxt{
+    width: 50%;
+    color: #aaa;
+    padding: 40px;
+  }
+  .footertxt p{
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .media{
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  .media .icon{
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+  }
+  .media .icon img{
+    width: 40px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .media .icon{
+      display: block;
+    }
+  }
+  @media (max-width: 640px) {
+    .media{
+      display: block;
+    }
+  }

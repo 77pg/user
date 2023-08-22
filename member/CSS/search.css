@@ -1,0 +1,133 @@
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    margin: 5% 5% 0% 10%;
+    height: 20%;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    background-color: #f1f1f1;
+    position: relative;
+    height: 100%;
+    overflow: auto;
+    display: block;
+    overflow-y: hidden;
+}
+
+.sidebar>ul>li a {
+    display: block;
+    color: #000;
+    padding: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.sidebar>ul>li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.context {
+    width: 50%;
+    margin-top: 5%;
+}
+
+.main {
+    width: 700px;
+}
+.main .order{
+    border: 1.5px solid #aaa;
+    border-radius: 8px;
+}
+.main .day{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px;
+}
+.daycontent{
+    display: flex;
+}
+.daycontent p{
+    padding: 0 10px;
+    color: #aaa;
+}
+.dadaycontenty span{
+    padding-right: 10px;
+}
+.plusicon img{
+    width: 30px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+.zoom{
+    border-top: 1px solid #aaa;
+    margin: 20px;
+    padding: 10px;
+}
+.schedule{
+    padding: 50px 30px 40px 30px;
+    background-color: #f4f2f2;
+    display: flex;
+    justify-content: space-around;
+}
+.scheduledot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.scheduledot img{
+    width: 30px;
+    margin-bottom: 30px;
+}
+.scheduledot::before{
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 3px;
+    color: blue;
+}
+.schedule p{
+    color: #aaa;
+    padding-top: 5px;
+    font-size: 14px;
+}
+.orderitem{
+    margin: 20px 0 10px 0;
+    padding: 20px;
+    border: 1.5px solid #aaa;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.orderimg{
+    width: 100px;
+}
+.orderimg img{
+    width: 100%;
+}
+.ordername{
+    display: flex;
+}
+.ordername p{
+    padding: 8px;
+}
+
+
+@media (max-width: 900px) {
+    .media .icon{
+      display: block;
+    }
+  }
+  @media (max-width: 640px) {
+    .media{
+      display: block;
+    }
+  }

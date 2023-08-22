@@ -1,0 +1,132 @@
+h2{
+    width: 600px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.commoditydetail{
+    width: 600px;
+    border: 1.5px solid #dadada;
+    border-radius: 5px;
+}
+.tbody img{
+    width: 100px;
+}
+.thead,.tbody,.total,.freight,.discount{
+    display: flex;
+}
+.thead{
+    background-color: #dadada;
+    padding: 15px;
+
+}
+p{
+    padding: 0 10px;
+}
+.leftwidth{
+    width: 300px;
+    display: flex;
+    align-items: center;
+
+}
+.rightwidth{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.tbody{
+    padding: 15px;
+}
+.quantity{
+    display: flex;
+}
+button{
+    background-color: white;
+    border: 1px solid #dadada;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.num{
+    border: 1px solid #dadada;
+    width: 25px;
+    text-align: center;
+}
+.freight,.discount{
+    justify-content: flex-end;
+    padding: 10px 30px;
+}
+.total{
+    border-top: 1px solid #dadada;
+    padding: 15px 0;
+    justify-content: space-between;
+}
+.right{
+    display: flex;
+    padding-right: 10px;
+}
+.fix {
+    width: 55px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+  }
+  
+  .fix img {
+    padding: 3px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .fix a {
+    display: block;
+    width: 50px;
+  }
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+  }
+  
+  .footer {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #000;
+  }
+  
+  .footertxt {
+    width: 50%;
+    color: #aaa;
+    padding: 40px;
+  }
+  
+  .footertxt p {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  
+  .media {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .media .icon {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+  }
+  
+  .media .icon img {
+    width: 40px;
+    margin-right: 10px;
+  }

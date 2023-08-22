@@ -1,0 +1,181 @@
+
+.header {
+    display: flex;
+    flex-direction: column;
+    /* height: 100px; */
+    padding: 15px;
+    color: #ffffff;
+  }
+  .sideicon {
+    display: none
+  }
+  .display{
+    display: none;
+  }
+  .header h1 {
+    color: #000;
+    font-size: 36px;
+    font-weight: bold;
+    margin-left: 200px;
+  }
+  .menu a{
+    text-decoration: none;
+  }
+  
+  hr {
+    margin: 5px 15px;
+    border-color: black;
+  }
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    width: 100%;
+  }
+  .menu-right {
+    display: flex;
+  }
+  .menu-left{
+    display: flex;
+    margin-left:-20px;
+  }
+  
+  /* 右邊icon */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn-1,.dropbtn-2,.dropbtn-3 {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 10%;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  .dropdown-content li {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color:rgba(128, 128, 128, 0.808);
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f7d0e7;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  
+  /* 左邊漢堡選單 */
+  .dropbtn-0{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 40px;
+  }
+  
+  .dropdown-content-0 {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 0;
+  }
+  
+  .dropdown-content-0 a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  .dropdown-content-0 li {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color:rgba(128, 128, 128, 0.808);
+  }
+  
+  .dropdown-content-0 a:hover {
+    background-color:#f7d0e7;
+  }
+  
+  .dropdown:hover .dropdown-content-0 {
+    display: block;
+  }
+  
+  /* 導覽列 */
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    color: black;
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  .navbar>a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px
+  }
+  .navbar>a:hover {
+    font-weight: bold;
+  }
+
+  @media screen and (max-width:760px) {
+    .header{
+      height: 50px;
+    }
+    .sideicon {
+      display: block;
+      cursor: pointer;
+    }
+    .menu{
+      position: relative;
+    }
+    hr{
+      display: none;
+    }
+    .dropdown-1,.dropdown-3 {
+      display: none
+    }
+    .dropbtn-1,.dropbtn-3 {
+      display: none
+    }
+    .navbar{
+      display: none;
+    }
+
+    .header h1 {
+        margin-left: -20px;
+      }
+}
+
+@media screen and (min-width:760px) {
+    .dropbtn-0{
+      display: none;
+    }
+  }

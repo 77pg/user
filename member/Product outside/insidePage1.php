@@ -3,14 +3,14 @@ session_start();
 require 'db.php';
 
 // 取得目前登入帳號的uid
-// $token = $_COOKIE['token'];
 if(isset($_COOKIE['token'])){
-$stmt = $mysqli->prepare("SELECT uid from userinfo where token = ?");
-$stmt->bind_param('s', $token);
-$stmt->execute();
-$result = $stmt->get_result();
-$uid_row = $result->fetch_assoc();
-$uid = $uid_row['uid'];
+    $token = $_COOKIE['token'];
+    $stmt = $mysqli->prepare("SELECT uid from userinfo where token = ?");
+    $stmt->bind_param('s', $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $uid_row = $result->fetch_assoc();
+    $uid = $uid_row['uid'];
 }
 
 // collect table
@@ -140,7 +140,7 @@ if (isset($_GET['pid'])) {
                             // 使用者已登入，顯示登出選項
                             echo '<li style="color:black;font-size: 12px;">---登入成功---</li>';
                             echo '<li><a href="../Member area/update.php">我的帳戶</a></li>';
-                            echo '<li><a href="../Member area/update.php">變更密碼</a></li>';
+                            echo '<li><a href="../Member area/password.php">變更密碼</a></li>';
                             echo '<li><a href="../Member area/search.php">訂單查詢</a></li>';
                             echo '<li><a href="../Member area/collect.php">收藏清單</a></li>';
                             echo '<li><a href="../login/logout.php">登出</a></li>';

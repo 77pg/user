@@ -6,9 +6,9 @@ require('db.php');
 // $id = $_GET["pid"];
 
 // 取得目前登入帳號的uid
-// $token = $_COOKIE['token'];
 if(isset($_COOKIE['token'])){
-
+    
+    $token = $_COOKIE['token'];
     $stmt = $mysqli->prepare("SELECT uid from userinfo where token = ?");
     $stmt->bind_param('s',$token);
     $stmt->execute();
@@ -27,6 +27,7 @@ $favorites = [];
 while ($favRow = $fav_result->fetch_assoc()) {
     $favorites[] = $favRow['pid'];
 }
+
 
 
 
@@ -122,7 +123,7 @@ if (!$result) {
                             // 使用者已登入，顯示登出選項
                             echo '<li style="color:black;font-size: 12px;">---登入成功---</li>';
                             echo '<li><a href="../Member area/update.php">我的帳戶</a></li>';
-                            echo '<li><a href="../Member area/update.php">變更密碼</a></li>';
+                            echo '<li><a href="../Member area/password.php">變更密碼</a></li>';
                             echo '<li><a href="../Member area/search.php">訂單查詢</a></li>';
                             echo '<li><a href="../Member area/collect.php">收藏清單</a></li>';
                             echo '<li><a href="../logout.php">登出</a></li>';
@@ -187,6 +188,7 @@ if (!$result) {
         $pid = $row['pid'];
         $pname = $row['pname'];
         $price = $row['price'];
+        $price_final = round($row['price']*$row['P_discount']);
         $pimage = $row['pimage']; ?>
         <div class="card">
             <div class="box">
@@ -199,7 +201,7 @@ if (!$result) {
             </div>
             <div class="state">
                 <h3><?php echo $pname; ?></h3>
-                <h3>NT$<?php echo $price; ?>元</h3>
+                <h3>NT$<?php echo $price_final; ?>元</h3>
             </div>
         </div>
         <?php } ?>
